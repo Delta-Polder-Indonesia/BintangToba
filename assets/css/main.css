@@ -19,12 +19,10 @@
   --global-divider-color: rgba(0,0,0,.1);
   --global-card-bg-color: #ffffff;
 }
-:root .fa-sun {
+:root .icon-sun {
   display: none;
 }
-:root .fa-moon {
-  padding-left: 10px;
-  padding-top: 12px;
+:root .icon-moon {
   display: block;
 }
 :root .repo-img-light {
@@ -48,12 +46,10 @@ html[data-theme=dark] {
   --global-divider-color: #424246;
   --global-card-bg-color: #212529;
 }
-html[data-theme=dark] .fa-sun {
-  padding-left: 10px;
-  padding-top: 12px;
+html[data-theme=dark] .icon-sun {
   display: block;
 }
-html[data-theme=dark] .fa-moon {
+html[data-theme=dark] .icon-moon {
   display: none;
 }
 html[data-theme=dark] .repo-img-light {
@@ -89,6 +85,15 @@ body.sticky-bottom-footer {
 
 .profile img {
   width: 100%;
+  height: auto;
+}
+
+/* Replacement for the removed MDB utility classes */
+.z-depth-1 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.rounded {
+  border-radius: 0.5rem !important;
 }
 
 /******************************************************************************
@@ -299,11 +304,22 @@ blockquote {
   transform: rotate(0);
 }
 
+.toggle-container {
+  display: flex;
+  align-items: center;
+  margin: 0 0.25rem;
+}
 #light-toggle {
-  padding: 0;
+  padding: 0.35rem 0.5rem;
   border: 0;
   background-color: inherit;
   color: var(--global-text-color);
+  line-height: 0;
+  cursor: pointer;
+}
+#light-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
 }
 #light-toggle:hover {
   color: var(--global-hover-color);
@@ -313,13 +329,23 @@ blockquote {
   text-align: center;
 }
 .social .contact-icons {
-  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 3rem;
 }
-.social .contact-icons a i::before {
+.social .contact-icons a {
+  display: inline-flex;
+  line-height: 0;
+}
+.social .contact-icons a svg {
+  width: 3rem;
+  height: 3rem;
   color: var(--global-text-color);
-  transition-property: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
-.social .contact-icons a:hover i::before {
+.social .contact-icons a:hover svg {
   color: var(--global-theme-color);
 }
 .social .contact-note {

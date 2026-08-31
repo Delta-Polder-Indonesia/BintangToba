@@ -1,4 +1,2 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://arthursoenarto.github.io/sitemap.xml
+Allow: /
