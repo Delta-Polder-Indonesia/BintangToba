@@ -106,7 +106,7 @@
 
 .collection-page .site-header{
   position: fixed;
-  top: 0;
+  top: var(--navbar-height);
   left: 0;
   right: 0;
   z-index: 20;
@@ -252,7 +252,7 @@
 }
 
 .collection-page section[id]{
-  scroll-margin-top: var(--header-height);
+  scroll-margin-top: calc(var(--navbar-height) + var(--header-height));
 }
 
 .collection-page .hero{

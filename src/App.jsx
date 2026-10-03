@@ -70,10 +70,10 @@ export default function App() {
   }, [language]);
 
   useEffect(() => {
-    document.body.classList.toggle('page-collection', currentPage === 'collection');
+    document.body.classList.toggle('page-embed', currentPage !== 'about');
 
     return () => {
-      document.body.classList.remove('page-collection');
+      document.body.classList.remove('page-embed');
     };
   }, [currentPage]);
 
