@@ -3,7 +3,8 @@
   --surface: #ffffff;
   --text: #121212;
   --muted-text: #5d5d5d;
-  --accent: #b509ac;
+  /* Muted mulberry has 7.29:1 contrast against the white page background. */
+  --accent: #8f2d85;
   --footer-background: #1c1c1d;
   --footer-text: #e8e8e8;
   --footer-link: #ffffff;
@@ -19,7 +20,8 @@
   --surface: #1c1c1d;
   --text: #e8e8e8;
   --muted-text: #c8c8c8;
-  --accent: #2698ba;
+  /* Soft plum avoids a neon look and has 7.39:1 contrast against this background. */
+  --accent: #cf9ac9;
   --footer-background: #e8e8e8;
   --footer-text: #1c1c1d;
   --footer-link: #000000;
@@ -241,6 +243,11 @@ a:hover {
   color: var(--text);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.875rem;
+}
+
+/* A comfortable reading measure keeps long paragraphs below roughly 80 characters. */
+.about-copy {
+  max-width: 64ch;
 }
 
 .about-copy p {
