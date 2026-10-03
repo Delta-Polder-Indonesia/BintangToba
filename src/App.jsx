@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react';
-import Header from './components/layout/Header.jsx';
-import Footer from './components/layout/Footer.jsx';
-import ProfileCard from './components/profile/ProfileCard.jsx';
-import SocialLinks from './components/profile/SocialLinks.jsx';
-import { portfolioContent } from './data/portfolio.jsx';
+import { Footer, Header, ProfileCard, SocialLinks } from './components/index.js';
+import { portfolioContent } from './data/index.js';
 
 const LANGUAGE_KEY = 'portfolio-language';
 const THEME_KEY = 'theme';
+const THEME_TRANSITION_CLASS = 'transition';
+const THEME_TRANSITION_DURATION = 500;
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document
+    .querySelector('meta[name="theme-color"]')
+    ?.setAttribute('content', theme === 'dark' ? '#1c1c1d' : '#ffffff');
+  localStorage.setItem(THEME_KEY, theme);
+}
 
 function getInitialLanguage() {
   try {
@@ -40,23 +47,32 @@ export default function App() {
   }, [language]);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : '';
-    if (theme === 'light') document.documentElement.removeAttribute('data-theme');
-    localStorage.setItem(THEME_KEY, theme);
+    applyTheme(theme);
   }, [theme]);
+
+  function transTheme() {
+    document.documentElement.classList.add(THEME_TRANSITION_CLASS);
+    window.setTimeout(() => {
+      document.documentElement.classList.remove(THEME_TRANSITION_CLASS);
+    }, THEME_TRANSITION_DURATION);
+  }
 
   function toggleLanguage() {
     setLanguage((currentLanguage) => (currentLanguage === 'id' ? 'en' : 'id'));
   }
 
   function toggleTheme() {
-    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    transTheme();
+    applyTheme(nextTheme);
+    setTheme(nextTheme);
   }
 
   return (
     <div className="app-shell">
       <Header
         language={language}
+        theme={theme}
         content={content}
         isMenuOpen={isMenuOpen}
         onMenuToggle={setIsMenuOpen}
@@ -64,20 +80,23 @@ export default function App() {
         onThemeToggle={toggleTheme}
       />
 
-      <main className="page-shell main-content" id="about">
-        <article className="about">
-          <header className="about-header">
-            <h1>Bintang Toba</h1>
+      <main className="container mt-5" id="about">
+        <div className="post">
+          <header className="post-header">
+            <h1 className="post-title">Bintang Toba</h1>
+            <p className="desc">{content.subtitle}</p>
           </header>
 
-          <ProfileCard imageAlt={content.imageAlt} address={content.address} />
+          <article>
+            <ProfileCard imageAlt={content.imageAlt} address={content.address} />
 
-          <section className="about-copy" aria-label={content.navigation}>
-            {content.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-          </section>
+            <div className="clearfix about-copy" aria-label={content.navigation}>
+              {content.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+            </div>
 
-          <SocialLinks note={content.contactNote} />
-        </article>
+            <SocialLinks note={content.contactNote} />
+          </article>
+        </div>
       </main>
 
       <Footer text={content.footer} />

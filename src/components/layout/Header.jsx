@@ -1,42 +1,65 @@
 import flagIndonesia from '../../assets/images/flag-id.svg';
 import flagEnglish from '../../assets/images/flag-gb.svg';
-import { MenuIcon, MoonIcon, SunIcon } from '../ui/Icons.jsx';
+import { MoonIcon, SunIcon } from '../ui/index.js';
 
 const flags = {
   id: flagIndonesia,
   en: flagEnglish,
 };
 
-export default function Header({ language, content, isMenuOpen, onMenuToggle, onLanguageToggle, onThemeToggle }) {
+export default function Header({ language, theme, content, isMenuOpen, onMenuToggle, onLanguageToggle, onThemeToggle }) {
   return (
-    <header className="site-header">
-      <nav className="navbar" aria-label="Main navigation">
-        <div className="page-shell navbar-content">
+    <header>
+      <nav id="navbar" className="navbar navbar-light navbar-expand-sm fixed-top">
+        <div className="container">
           <button
-            className={`menu-toggle ${isMenuOpen ? 'is-open' : ''}`}
+            className={`navbar-toggler ml-auto ${isMenuOpen ? '' : 'collapsed'}`}
             type="button"
-            aria-controls="primary-navigation"
+            aria-controls="navbarNav"
             aria-expanded={isMenuOpen}
             aria-label={content.menuLabel}
             onClick={() => onMenuToggle(!isMenuOpen)}
           >
-            <span className="visually-hidden">{content.menuLabel}</span>
-            <MenuIcon />
+            <span className="sr-only">{content.menuLabel}</span>
+            <span className="icon-bar top-bar" />
+            <span className="icon-bar middle-bar" />
+            <span className="icon-bar bottom-bar" />
           </button>
 
-          <div className={`navigation-panel ${isMenuOpen ? 'is-open' : ''}`} id="primary-navigation">
-            <a className="navigation-link is-active" href="#about" onClick={() => onMenuToggle(false)}>
-              {content.navigation}
-              <span className="visually-hidden"> (current)</span>
-            </a>
-            <button className="language-toggle" type="button" aria-label={content.languageLabel} onClick={onLanguageToggle}>
-              <span>{language.toUpperCase()}</span>
-              <img src={flags[language]} alt={content.flagAlt} width="20" height="14" />
-            </button>
-            <button className="theme-toggle" type="button" aria-label={content.themeLabel} title={content.themeLabel} onClick={onThemeToggle}>
-              <MoonIcon />
-              <SunIcon />
-            </button>
+          <div className={`collapse navbar-collapse text-right ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
+            <ul className="navbar-nav ml-auto flex-nowrap">
+              <li className="nav-item active">
+                <a className="nav-link" href="#about" onClick={() => onMenuToggle(false)}>
+                  {content.navigation}
+                  <span className="sr-only"> (current)</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="language-toggle nav-link"
+                  type="button"
+                  aria-label={content.languageLabel}
+                  title={content.languageLabel}
+                  onClick={onLanguageToggle}
+                >
+                  <span>{language.toUpperCase()}</span>
+                  <img src={flags[language]} alt={content.flagAlt} width="20" height="14" />
+                </button>
+              </li>
+              <li className="toggle-container">
+                <button
+                  id="light-toggle"
+                  type="button"
+                  title={content.themeLabel}
+                  aria-label={content.themeLabel}
+                  aria-pressed={theme === 'dark'}
+                  onClick={onThemeToggle}
+                >
+                  <MoonIcon className="theme-toggle-icon fa-moon" />
+                  <SunIcon className="theme-toggle-icon fa-sun" />
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
