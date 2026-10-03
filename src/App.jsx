@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { AiSlopPage, CollectionPage, Footer, Header, ProfileCard, SocialLinks } from './components/index.js';
 import { portfolioContent } from './data/index.js';
 
@@ -133,17 +133,19 @@ export default function App() {
         </main>
       )}
 
-      {currentPage === 'collection' && (
-        <main className="collection-page-shell" id="collection">
-          <CollectionPage />
-        </main>
-      )}
+      <Suspense fallback={null}>
+        {currentPage === 'collection' && (
+          <main className="collection-page-shell" id="collection">
+            <CollectionPage />
+          </main>
+        )}
 
-      {currentPage === 'ai-slop' && (
-        <main className="ai-slop-page-shell" id="ai-slop">
-          <AiSlopPage language={language} />
-        </main>
-      )}
+        {currentPage === 'ai-slop' && (
+          <main className="ai-slop-page-shell" id="ai-slop">
+            <AiSlopPage language={language} />
+          </main>
+        )}
+      </Suspense>
 
       <Footer text={content.footer} />
     </div>
