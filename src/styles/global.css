@@ -433,7 +433,7 @@ table.table a:hover {
 
 .social .contact-icons a {
   display: inline-block;
-  margin: 0 0.05em;
+  margin: 0 0.2em;
   color: var(--global-text-color);
   line-height: 1;
   text-decoration: none;
@@ -470,6 +470,7 @@ table.table a:hover {
   padding-top: 9px;
   padding-bottom: 8px;
   color: var(--global-footer-text-color);
+  text-align: center;
 }
 
 .site-footer.fixed-bottom a {
@@ -479,6 +480,19 @@ table.table a:hover {
 .site-footer.fixed-bottom a:hover {
   color: var(--global-theme-color);
   text-decoration: none;
+}
+
+.page-embed {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.page-embed iframe {
+  display: block;
+  width: 100%;
+  height: calc(100vh - 100px);
+  border: 0;
+  background-color: var(--global-bg-color);
 }
 
 @media (min-width: 576px) {

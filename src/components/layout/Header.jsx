@@ -7,7 +7,13 @@ const flags = {
   en: flagEnglish,
 };
 
-export default function Header({ language, theme, content, isMenuOpen, onMenuToggle, onLanguageToggle, onThemeToggle }) {
+export default function Header({ language, theme, content, currentPage, isMenuOpen, onMenuToggle, onLanguageToggle, onThemeToggle }) {
+  const tabs = [
+    { page: 'about', href: '#about', label: content.navigation },
+    { page: 'collection', href: '#collection', label: content.navigationCollection },
+    { page: 'ai-slop', href: '#ai-slop', label: content.navigationAiSlop },
+  ];
+
   return (
     <header>
       <nav id="navbar" className="navbar navbar-light navbar-expand-sm fixed-top">
@@ -28,12 +34,14 @@ export default function Header({ language, theme, content, isMenuOpen, onMenuTog
 
           <div className={`collapse navbar-collapse text-right ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
             <ul className="navbar-nav ml-auto flex-nowrap">
-              <li className="nav-item active">
-                <a className="nav-link" href="#about" onClick={() => onMenuToggle(false)}>
-                  {content.navigation}
-                  <span className="sr-only"> (current)</span>
-                </a>
-              </li>
+              {tabs.map(({ page, href, label }) => (
+                <li key={page} className={`nav-item ${currentPage === page ? 'active' : ''}`}>
+                  <a className="nav-link" href={href} onClick={() => onMenuToggle(false)}>
+                    {label}
+                    {currentPage === page && <span className="sr-only"> (current)</span>}
+                  </a>
+                </li>
+              ))}
               <li className="nav-item">
                 <button
                   className="language-toggle nav-link"

@@ -1,6 +1,8 @@
 export const portfolioContent = {
   en: {
     navigation: 'about',
+    navigationCollection: 'collection',
+    navigationAiSlop: 'ai slop',
     subtitle: 'Electrical Engineering, Universitas Pembangunan Panca Budi',
     languageLabel: 'English. Click to switch to Bahasa Indonesia',
     flagAlt: 'English flag',
@@ -18,6 +20,8 @@ export const portfolioContent = {
   },
   id: {
     navigation: 'tentang',
+    navigationCollection: 'koleksi',
+    navigationAiSlop: 'ai slop',
     subtitle: 'Teknik Elektro, Universitas Pembangunan Panca Budi',
     languageLabel: 'Bahasa Indonesia. Klik untuk mengganti ke English',
     flagAlt: 'Bendera Indonesia',
