@@ -1,7 +1,7 @@
 import { CodeIcon, GitHubIcon, MailIcon } from '../ui/index.js';
 
 const socialLinks = [
-  { href: 'mailto:trianandaadisti04@gmail.com', label: 'Email Tria Nanda Adisti', title: 'Email', icon: MailIcon },
+  { href: 'mailto:trianandaadisti04@gmail.com', label: 'Email Bintang Toba', title: 'Email', icon: MailIcon },
   { href: 'https://github.com/Delta-Polder-Indonesia', label: 'GitHub Delta Polder Indonesia', title: 'GitHub', icon: GitHubIcon },
   { href: 'https://greasyfork.org/id/users/1575724-bintang-toba', label: 'Profil Greasy Fork Bintang Toba', title: 'Greasy Fork', icon: CodeIcon },
 ];

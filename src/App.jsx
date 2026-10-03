@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Footer, Header, ProfileCard, SocialLinks } from './components/index.js';
+import { AiSlopPage, CollectionPage, Footer, Header, ProfileCard, SocialLinks } from './components/index.js';
 import { portfolioContent } from './data/index.js';
 
 const LANGUAGE_KEY = 'portfolio-language';
@@ -8,9 +8,13 @@ const THEME_TRANSITION_CLASS = 'transition';
 const THEME_TRANSITION_DURATION = 500;
 const PAGES = ['about', 'collection', 'ai-slop'];
 
-function getInitialPage() {
+function getPageFromHash() {
   const hash = window.location.hash.replace('#', '');
-  return PAGES.includes(hash) ? hash : 'about';
+  return PAGES.includes(hash) ? hash : null;
+}
+
+function getInitialPage() {
+  return getPageFromHash() ?? 'about';
 }
 
 function applyTheme(theme) {
@@ -50,7 +54,9 @@ export default function App() {
 
   useEffect(() => {
     function handleHashChange() {
-      setCurrentPage(getInitialPage());
+      const nextPage = getPageFromHash();
+      if (!nextPage) return;
+      setCurrentPage(nextPage);
       window.scrollTo(0, 0);
     }
 
@@ -62,6 +68,14 @@ export default function App() {
     document.documentElement.lang = language;
     localStorage.setItem(LANGUAGE_KEY, language);
   }, [language]);
+
+  useEffect(() => {
+    document.body.classList.toggle('page-collection', currentPage === 'collection');
+
+    return () => {
+      document.body.classList.remove('page-collection');
+    };
+  }, [currentPage]);
 
   useEffect(() => {
     applyTheme(theme);
@@ -120,14 +134,14 @@ export default function App() {
       )}
 
       {currentPage === 'collection' && (
-        <main className="page-embed" id="collection">
-          <iframe src="koleksi/index.html" title="Koleksi"></iframe>
+        <main className="collection-page-shell" id="collection">
+          <CollectionPage />
         </main>
       )}
 
       {currentPage === 'ai-slop' && (
-        <main className="page-embed" id="ai-slop">
-          <iframe src="ai-slop/index.html" title="AI Slop"></iframe>
+        <main className="ai-slop-page-shell" id="ai-slop">
+          <AiSlopPage language={language} />
         </main>
       )}
 
