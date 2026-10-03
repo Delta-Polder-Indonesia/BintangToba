@@ -482,17 +482,17 @@ table.table a:hover {
   text-decoration: none;
 }
 
-.page-embed {
-  padding-top: 60px;
-  padding-bottom: 40px;
+.collection-page-shell,
+.ai-slop-page-shell {
+  background-color: var(--global-bg-color);
 }
 
-.page-embed iframe {
-  display: block;
-  width: 100%;
-  height: calc(100vh - 100px);
-  border: 0;
-  background-color: var(--global-bg-color);
+body.page-collection {
+  padding-bottom: 0;
+}
+
+body.page-collection .site-footer.fixed-bottom {
+  display: none;
 }
 
 @media (min-width: 576px) {
@@ -535,4 +535,5 @@ table.table a:hover {
   .nav-link {
     padding-right: 0;
   }
+
 }
