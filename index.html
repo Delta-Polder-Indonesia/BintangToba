@@ -1,237 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
-  <!-- Head -->
   <head>
-    <!-- Standard metadata -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Bintang Toba</title>
-    <meta name="author" content="Tria Nanda Adisti">
-    <meta name="description" content="Bintang Toba — mahasiswa Teknik Elektro Universitas Pembangunan Panca Budi, Medan, Sumatera Utara. Tertarik pada sistem elektronika, kelistrikan arus besar, dan pengembangan perangkat lunak.">
-    <meta name="keywords" content="Bintang Toba, Tria Nanda Adisti, Teknik Elektro, Universitas Pembangunan Panca Budi, Medan, portofolio, pengembangan web">
-    <link rel="canonical" href="https://delta-polder-indonesia.github.io/BintangToba/">
+    <meta name="author" content="Tria Nanda Adisti" />
+    <meta
+      name="description"
+      content="Bintang Toba — mahasiswa Teknik Elektro Universitas Pembangunan Panca Budi, Medan, Sumatera Utara."
+    />
+    <meta
+      name="keywords"
+      content="Bintang Toba, Tria Nanda Adisti, Teknik Elektro, Universitas Pembangunan Panca Budi, Medan, portofolio, pengembangan web"
+    />
+    <link rel="canonical" href="https://delta-polder-indonesia.github.io/BintangToba/" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Bintang Toba">
-    <meta property="og:title" content="Bintang Toba">
-    <meta property="og:description" content="Mahasiswa Teknik Elektro Universitas Pembangunan Panca Budi, Medan — elektronika & pengembangan perangkat lunak.">
-    <meta property="og:url" content="https://delta-polder-indonesia.github.io/BintangToba/">
-    <meta property="og:image" content="https://delta-polder-indonesia.github.io/BintangToba/assets/img/profile_pic.jpg">
-    <meta property="og:locale" content="id_ID">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bintang Toba" />
+    <meta property="og:title" content="Bintang Toba" />
+    <meta
+      property="og:description"
+      content="Mahasiswa Teknik Elektro Universitas Pembangunan Panca Budi, Medan — elektronika & pengembangan perangkat lunak."
+    />
+    <meta property="og:url" content="https://delta-polder-indonesia.github.io/BintangToba/" />
+    <meta property="og:image" content="https://delta-polder-indonesia.github.io/BintangToba/favicon.jpg" />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary" />
 
-    <link rel="shortcut icon" href="assets/img/yang.jpg">
-
-    <!-- Open connections early to save round-trips -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Bootstrap (only CSS — the JS components are replaced by a few lines of vanilla JS) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
-
-    <!-- Fonts: Roboto only, text stays visible while the font loads -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
-
-    <!-- Local styles -->
-    <link rel="stylesheet" href="assets/css/main.css">
-
-    <!-- Apply the saved theme before first paint to avoid a flash -->
+    <link rel="icon" href="./favicon.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
     <script>
       (function () {
-        var t = localStorage.getItem('theme');
-        if (t === null || t === 'null') {
-          t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : null;
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var theme = savedTheme === 'dark' || savedTheme === 'light'
+            ? savedTheme
+            : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+          if (theme === 'dark') document.documentElement.dataset.theme = 'dark';
+        } catch (error) {
+          // Use the default light theme if browser storage is unavailable.
         }
-        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', t);
       }());
     </script>
   </head>
-
-  <!-- Body -->
-  <body class="fixed-top-nav">
-
-    <!-- Header -->
-    <header>
-      <!-- Nav Bar -->
-      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" aria-label="Main navigation">
-        <div class="container">
-
-          <!-- Navbar Toggle (mobile) -->
-          <button class="navbar-toggler collapsed ml-auto" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar top-bar"></span>
-            <span class="icon-bar middle-bar"></span>
-            <span class="icon-bar bottom-bar"></span>
-          </button>
-
-          <div class="collapse navbar-collapse text-right" id="navbarNav">
-            <ul class="navbar-nav ml-auto flex-nowrap">
-
-              <!-- About -->
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">about<span class="sr-only">(current)</span></a>
-              </li>
-
-              <!-- Language switcher -->
-              <li class="language-switcher">
-                <button type="button" id="language-toggle" class="lang-btn" aria-label="Bahasa Indonesia" aria-live="polite">ID <img src="assets/img/flag-id.svg" alt="Bendera Indonesia" width="20" height="14"></button>
-              </li>
-
-              <!-- Toggle theme mode -->
-              <li class="toggle-container">
-                <button id="light-toggle" type="button" title="Change theme" aria-label="Ganti mode terang atau gelap">
-                  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>
-                  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- Content -->
-    <main class="container mt-5">
-      <!-- about.html -->
-      <div class="post">
-        <header class="post-header">
-          <h1 class="post-title">
-           Bintang Toba
-          </h1>
-          <p class="desc"></p>
-        </header>
-
-        <article>
-          <div class="profile float-right">
-            <figure>
-              <picture>
-                <!-- Modern format first, JPEG fallback for older browsers -->
-                <source srcset="assets/img/profile_pic.webp" type="image/webp">
-                <img src="assets/img/profile_pic.jpg" class="img-fluid z-depth-1 rounded" width="800" height="800" fetchpriority="high" alt="Foto potret Bintang Toba">
-              </picture>
-            </figure>
-
-            <div class="address">
-              LB -&gt; KIS -&gt; SUMUT
-            </div>
-          </div>
-
-          <div class="clearfix language-content" data-language="en">
-            <p>Hello, I am an Electrical Engineering student at <a href="https://www.pancabudi.ac.id" target="_blank" rel="noopener noreferrer">Universitas Pembangunan Panca Budi</a> Medan, Sumatera Utara with a deep interest in advanced electronic systems and high-current electrical applications. Through this academic background, I keep sharpening my skills in electrical analysis, system architecture design, and technology optimisation for real-world industry application.</p>
-
-            <p>However, my interests do not stop at hardware. Outside of lectures, I challenge myself to learn software development independently. To me, coding is a creative space for translating engineering logic into practical digital solutions. On my GitHub repositories, I channel this learning process by building several web projects from scratch, from backend architecture up to the user interface. I developed <a href="https://delta-polder-indonesia.github.io/ChessClub/" target="_blank" rel="noopener noreferrer">ChessClub</a> as an interactive online chess arena platform, built <a href="https://delta-polder-indonesia.github.io/projeck-kasir-cafe/" target="_blank" rel="noopener noreferrer">Project Kasir Cafe</a>, a point-of-sale application for transaction management, and designed <a href="https://delta-polder-indonesia.github.io/siakad-sekolah/" target="_blank" rel="noopener noreferrer">SIAKAD Sekolah</a> to digitalise school academic information systems.</p>
-
-            <p>Beyond engineering and lines of code, I enjoy exploring fields that train the way I think. I study philosophy because it provides a clear framework for making life decisions, while financial markets draw my attention with their global dynamics and risk management under uncertainty. In my downtime, I often spend time enjoying competitive games or following the epic adventures of the One Piece series. Looking ahead, I want to keep moving at the intersection of hardware and software engineering, creating meaningful digital innovations that deliver value to many people.</p>
-          </div>
-
-          <div class="clearfix language-content" data-language="id" hidden>
-            <p>Halo, saya adalah mahasiswa Teknik Elektro di <a href="https://www.pancabudi.ac.id" target="_blank" rel="noopener noreferrer">Universitas Pembangunan Panca Budi</a> Medan, Sumatera Utara yang memiliki ketertarikan mendalam pada sistem elektronika tingkat lanjut dan aplikasi kelistrikan arus besar. Melalui latar belakang akademis ini, saya terus mengasah kemampuan dalam menganalisis kelistrikan, merancang arsitektur sistem, serta mengoptimalkan teknologi agar dapat diterapkan secara nyata di industri.</p>
-
-            <p>Namun, minat saya tidak berhenti pada perangkat keras. Di luar aktivitas perkuliahan, saya menantang diri untuk mempelajari pengembangan perangkat lunak secara mandiri. Bagi saya, coding adalah ruang kreatif untuk menerjemahkan logika teknik menjadi solusi digital yang praktis. Di repositori GitHub, saya menuangkan proses belajar ini dengan membangun beberapa proyek web dari nol, mulai dari arsitektur backend hingga tampilan antarmukanya. Saya mengembangkan <a href="https://delta-polder-indonesia.github.io/ChessClub/" target="_blank" rel="noopener noreferrer">ChessClub</a> sebagai platform arena catur online interaktif, membuat aplikasi Point-of-Sale berupa <a href="https://delta-polder-indonesia.github.io/projeck-kasir-cafe/" target="_blank" rel="noopener noreferrer">Project Kasir Cafe</a> untuk manajemen transaksi, serta merancang <a href="https://delta-polder-indonesia.github.io/siakad-sekolah/" target="_blank" rel="noopener noreferrer">SIAKAD Sekolah</a> guna mendigitalisasi sistem informasi akademik.</p>
-
-            <p>Di luar dunia teknik dan baris kode, saya senang menjelajahi bidang yang melatih cara berpikir. Saya mendalami filsafat karena memberikan kerangka berpikir yang jernih dalam mengambil keputusan hidup, sedangkan pasar keuangan menarik perhatian saya karena dinamika global dan manajemen risikonya yang penuh ketidakpastian. Saat sedang bersantai, saya kerap menghabiskan waktu dengan menikmati permainan kompetitif atau mengikuti petualangan epik dalam serial One Piece. Ke depannya, saya ingin terus bergerak di titik temu antara rekayasa perangkat keras dan perangkat lunak, menciptakan inovasi digital yang bermakna dan memberikan nilai bagi banyak orang.</p>
-          </div>
-
-          <!-- Social -->
-          <div class="social">
-            <div class="contact-icons">
-              <a href="mailto:trianandaadisti04@gmail.com" title="Email" aria-label="Email Tria Nanda Adisti">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/></svg>
-              </a>
-              <a href="https://github.com/Delta-Polder-Indonesia" title="GitHub" aria-label="GitHub Delta Polder Indonesia" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
-              </a>
-              <a href="https://greasyfork.org/id/users/1575724-bintang-toba" title="Greasy Fork" aria-label="Profil Greasy Fork Bintang Toba" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/></svg>
-              </a>
-            </div>
-
-            <div class="contact-note">
-              <span data-language="en">Feel free to reach out to me anytime on anything.</span><span data-language="id" hidden>Jangan ragu untuk menghubungi saya kapan saja mengenai apa pun.</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="fixed-bottom">
-      <div class="container mt-0">
-        © Copyright 2026 Bintang Toba · Medan, Sumatera Utara. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
-      </div>
-    </footer>
-
-    <!-- All interactivity in one tiny vanilla script: theme toggle, mobile nav, language switch -->
-    <script>
-      (function () {
-        'use strict';
-
-        /* ---- Dark / light theme ---- */
-        function setTheme(theme) {
-          document.documentElement.classList.add('transition');
-          window.setTimeout(function () {
-            document.documentElement.classList.remove('transition');
-          }, 500);
-          if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-          } else {
-            document.documentElement.removeAttribute('data-theme');
-          }
-          localStorage.setItem('theme', theme);
-        }
-
-        document.getElementById('light-toggle').addEventListener('click', function () {
-          setTheme(localStorage.getItem('theme') === 'dark' ? 'light' : 'dark');
-        });
-
-        /* ---- Mobile navigation toggle (replaces Bootstrap JS) ---- */
-        var toggler = document.querySelector('.navbar-toggler');
-        var navCollapse = document.getElementById('navbarNav');
-
-        function setNav(open) {
-          navCollapse.classList.toggle('show', open);
-          toggler.classList.toggle('collapsed', !open);
-          toggler.setAttribute('aria-expanded', open ? 'true' : 'false');
-        }
-
-        toggler.addEventListener('click', function () {
-          setNav(!navCollapse.classList.contains('show'));
-        });
-        navCollapse.querySelectorAll('.nav-link').forEach(function (link) {
-          link.addEventListener('click', function () { setNav(false); });
-        });
-
-        /* ---- Language switcher ---- */
-        var langToggle = document.getElementById('language-toggle');
-        var langContents = document.querySelectorAll('[data-language]');
-        var currentLanguage = localStorage.getItem('portfolio-language') || 'id';
-
-        function setLanguage(lang) {
-          currentLanguage = lang;
-          document.documentElement.lang = lang;
-          langContents.forEach(function (item) {
-            item.hidden = item.dataset.language !== lang;
-          });
-          if (lang === 'id') {
-            langToggle.innerHTML = 'ID <img src="assets/img/flag-id.svg" alt="Bendera Indonesia" width="20" height="14">';
-            langToggle.setAttribute('aria-label', 'Bahasa Indonesia. Klik untuk mengganti ke English');
-          } else {
-            langToggle.innerHTML = 'EN <img src="assets/img/flag-gb.svg" alt="English flag" width="20" height="14">';
-            langToggle.setAttribute('aria-label', 'English. Click to switch to Bahasa Indonesia');
-          }
-          localStorage.setItem('portfolio-language', lang);
-        }
-
-        langToggle.addEventListener('click', function () {
-          setLanguage(currentLanguage === 'id' ? 'en' : 'id');
-        });
-        setLanguage(currentLanguage);
-      }());
-    </script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
