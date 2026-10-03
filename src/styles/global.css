@@ -249,6 +249,9 @@ a:hover {
 
 .about-copy p {
   margin: 0 0 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .about-copy p:last-child {
