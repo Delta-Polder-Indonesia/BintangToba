@@ -1,28 +1,43 @@
-# Bintang Toba — personal landing page
+# Bintang Toba — React portfolio
 
-Static HTML/CSS/JS portfolio page, hosted on GitHub Pages at
-<https://delta-polder-indonesia.github.io/BintangToba/>.
+A small bilingual personal portfolio built with **React** and **Vite**. The original static page has been split into focused JSX components, while keeping the language switcher, theme preference, responsive navigation, profile picture, and social links.
+
+## Project structure
+
+```text
+src/
+├── assets/images/          # Images and flags imported by React
+├── components/
+│   ├── layout/             # Header and footer
+│   ├── profile/            # Profile card and social links
+│   └── ui/                 # Reusable SVG icons
+├── data/portfolio.jsx      # Indonesian and English portfolio copy
+├── styles/global.css       # Theme tokens and responsive styling
+├── App.jsx                 # Page composition and app state
+└── main.jsx                # React entry point
+public/                     # Files copied directly to the build (favicon, robots.txt)
+```
 
 ## Run locally
 
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
-Then open <http://localhost:8080>.
+Vite prints the local preview URL. The dev server is configured to listen on all interfaces, so it also works in remote preview environments.
 
-## Stack
+## Production build
 
-- **Bootstrap 4.6** CSS (only the stylesheet — no Bootstrap/jQuery JavaScript)
-- **Roboto** via Google Fonts (`display=swap`, preconnected)
-- Handful of inline SVG icons (no icon-font download)
-- Two small vanilla-JS blocks: an inline head script that applies the saved
-  dark/light theme before first paint (no flash), and a footer script handling
-  the theme toggle, mobile navigation, and ID/EN language switch.
+```bash
+npm run build
+npm run preview
+```
 
-## Performance notes
+The production files are generated in `dist/`. Vite uses relative asset paths (`base: './'`), making the output suitable for this repository's GitHub Pages path as well as a root-domain deployment.
 
-The page ships no heavy libraries (no jQuery, MDB, MathJax, Masonry,
-Font Awesome or polyfills). The profile photo is served as WebP with a JPEG
-fallback, and all scripts/styles are either inlined or deferred out of the
-render-blocking path.
+## Notes
+
+- The selected language (`portfolio-language`) and theme (`theme`) are saved in `localStorage`.
+- A tiny script in `index.html` applies the saved theme before React loads, preventing a light-theme flash for returning dark-theme visitors.
+- No Bootstrap or JavaScript UI library is needed; the responsive layout is maintained by the project CSS.
