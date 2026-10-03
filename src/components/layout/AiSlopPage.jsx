@@ -2305,7 +2305,16 @@ export default function AiSlopPage({ language = 'en' }) {
                               h("div", { "className": "rule-card-visual-inner", "data-astro-cid-zbac3reb": "" },
                                 h("div", { "style": cssStyle("display: flex; flex-direction: column; align-items: center; gap: 8px; font-family: system-ui, sans-serif;"), "data-astro-cid-zbac3reb": "" },
                                   h("div", { "style": cssStyle("width: 104px; height: 70px; border-radius: 8px; overflow: hidden;"), "data-astro-cid-zbac3reb": "" },
-                                    h("img", { "src": "ai-slop/image/svg_xml__3csvg_20xmlns__http_//www.w3.org/2000/svg__20width__104__20height__70__3e_3cdefs_3e_3clineargradient_20id__g__20x1__0__20y1__0__20x2__1__20y2__1__3e_3cstop_20offset__0__20stop_color___23c9a86a_/_3e_3cstop_20offset__1__20stop_color___237a8b6f_/_3e_3c/lineargradient_3e_3c/defs_3e_3crect_20width__104__20height__70__20fill__url__23g__/_3e_3ccircle_20cx__80__20cy__20__20r__10__20fill___23f0e6c8_/_3e_3c/svg_3e", "alt": "", "style": cssStyle("width: 100%; height: 100%; display: block; animation: imgzoom 2.4s ease-in-out infinite;"), "data-astro-cid-zbac3reb": "" })
+                                    h("svg", { "width": "104", "height": "70", "viewBox": "0 0 104 70", "aria-hidden": "true", "style": cssStyle("width: 100%; height: 100%; display: block; animation: imgzoom 2.4s ease-in-out infinite;") },
+                                      h("defs", {},
+                                        h("linearGradient", { "id": "rule-image-hover-gradient", "x1": "0", "y1": "0", "x2": "1", "y2": "1" },
+                                          h("stop", { "offset": "0", "stopColor": "#c9a86a" }),
+                                          h("stop", { "offset": "1", "stopColor": "#7a8b6f" })
+                                        )
+                                      ),
+                                      h("rect", { "width": "104", "height": "70", "fill": "url(#rule-image-hover-gradient)" }),
+                                      h("circle", { "cx": "80", "cy": "20", "r": "10", "fill": "#f0e6c8" })
+                                    )
                                   ),
                                   h("div", { "style": cssStyle("font-size: 11px; color: #888;"), "data-astro-cid-zbac3reb": "" },
                                     "Hover-style zoom, replayed here."
