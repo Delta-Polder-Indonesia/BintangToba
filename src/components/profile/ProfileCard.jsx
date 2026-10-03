@@ -3,10 +3,11 @@ import profileWebp from '../../assets/images/profile.webp';
 
 export default function ProfileCard({ imageAlt, address }) {
   return (
-    <aside className="profile-card" aria-label="Profile">
+    <div className="profile float-right">
       <picture>
         <source srcSet={profileWebp} type="image/webp" />
         <img
+          className="img-fluid z-depth-1 rounded"
           src={profileJpg}
           width="800"
           height="800"
@@ -14,7 +15,9 @@ export default function ProfileCard({ imageAlt, address }) {
           alt={imageAlt}
         />
       </picture>
-      <p className="profile-address">{address}</p>
-    </aside>
+      <div className="address">
+        <p>{address}</p>
+      </div>
+    </div>
   );
 }

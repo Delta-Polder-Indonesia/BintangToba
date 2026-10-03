@@ -45,7 +45,9 @@
             : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
               ? 'dark'
               : 'light';
-          if (theme === 'dark') document.documentElement.dataset.theme = 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+          var themeColor = document.querySelector('meta[name="theme-color"]');
+          if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#1c1c1d' : '#ffffff');
         } catch (error) {
           // Use the default light theme if browser storage is unavailable.
         }

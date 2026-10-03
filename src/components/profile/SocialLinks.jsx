@@ -1,4 +1,4 @@
-import { CodeIcon, GitHubIcon, MailIcon } from '../ui/Icons.jsx';
+import { CodeIcon, GitHubIcon, MailIcon } from '../ui/index.js';
 
 const socialLinks = [
   { href: 'mailto:trianandaadisti04@gmail.com', label: 'Email Tria Nanda Adisti', title: 'Email', icon: MailIcon },
@@ -8,8 +8,8 @@ const socialLinks = [
 
 export default function SocialLinks({ note }) {
   return (
-    <section className="social-links" aria-label="Contact links">
-      <div className="social-icons">
+    <div className="social" aria-label="Contact links">
+      <div className="contact-icons">
         {socialLinks.map(({ href, label, title, icon: Icon }) => (
           <a
             key={href}
@@ -23,7 +23,8 @@ export default function SocialLinks({ note }) {
           </a>
         ))}
       </div>
-      <p className="contact-note">{note}</p>
-    </section>
+
+      <div className="contact-note">{note}</div>
+    </div>
   );
 }
