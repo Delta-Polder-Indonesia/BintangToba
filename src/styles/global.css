@@ -204,6 +204,8 @@ a:hover {
 }
 
 .main-content {
+  /* Keep the complete article at a readable width without leaving a gap below the floated photo. */
+  width: min(100% - 2rem, 660px);
   flex: 1;
   padding-top: 88px;
   padding-bottom: 2rem;
@@ -243,11 +245,6 @@ a:hover {
   color: var(--text);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.875rem;
-}
-
-/* A comfortable reading measure keeps long paragraphs below roughly 80 characters. */
-.about-copy {
-  max-width: 64ch;
 }
 
 .about-copy p {
