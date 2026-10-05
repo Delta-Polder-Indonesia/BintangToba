@@ -29,6 +29,9 @@ html[data-theme='dark'] {
   --global-footer-link-color: #000000;
   --global-divider-color: #424246;
   --global-card-bg-color: #212529;
+}
+
+html[data-scheme='dark'] {
   color-scheme: dark;
 }
 
@@ -104,9 +107,17 @@ img {
 
 html.transition,
 html.transition *,
-html.transition *:before,
-html.transition *:after {
-  transition: all 750ms !important;
+html.transition *::before,
+html.transition *::after {
+  transition:
+    background-color 750ms,
+    color 750ms,
+    border-color 750ms,
+    outline-color 750ms,
+    text-decoration-color 750ms,
+    box-shadow 750ms,
+    fill 750ms,
+    stroke 750ms !important;
   transition-delay: 0 !important;
 }
 

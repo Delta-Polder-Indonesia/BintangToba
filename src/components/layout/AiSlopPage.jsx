@@ -1,4 +1,4 @@
-import { createElement, useEffect, useRef } from 'react';
+import { createElement, memo, useEffect, useRef } from 'react';
 import { aiSlopTranslations } from '../../data/index.js';
 import '../../styles/ai-slop.css';
 
@@ -192,7 +192,7 @@ function setupAiSlopInteractions(root, language) {
   };
 }
 
-export default function AiSlopPage({ language = 'en' }) {
+export default memo(function AiSlopPage({ language = 'en' }) {
   const rootRef = useRef(null);
   const h = createAiSlopElement(language);
 
@@ -3126,4 +3126,4 @@ export default function AiSlopPage({ language = 'en' }) {
           )
     )
   );
-}
+});

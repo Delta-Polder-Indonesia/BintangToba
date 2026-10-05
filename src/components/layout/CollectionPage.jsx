@@ -1,4 +1,4 @@
-import { createElement as h, useEffect, useRef } from 'react';
+import { createElement as h, memo, useEffect, useRef } from 'react';
 import '../../styles/collection.css';
 
 
@@ -208,7 +208,7 @@ function setupCollectionInteractions(root) {
   };
 }
 
-export default function CollectionPage() {
+export default memo(function CollectionPage() {
   const rootRef = useRef(null);
 
   useEffect(() => {
@@ -766,4 +766,4 @@ export default function CollectionPage() {
           )
         )
   );
-}
+});

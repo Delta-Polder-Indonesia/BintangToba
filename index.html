@@ -46,6 +46,7 @@
               ? 'dark'
               : 'light';
           document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.setAttribute('data-scheme', theme);
           var themeColor = document.querySelector('meta[name="theme-color"]');
           if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#1c1c1d' : '#ffffff');
         } catch (error) {

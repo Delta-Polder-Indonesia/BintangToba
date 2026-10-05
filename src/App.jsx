@@ -6,6 +6,8 @@ const LANGUAGE_KEY = 'portfolio-language';
 const THEME_KEY = 'theme';
 const THEME_TRANSITION_CLASS = 'transition';
 const THEME_TRANSITION_DURATION = 500;
+const SCHEME_DELAY = THEME_TRANSITION_DURATION + 1000;
+let schemeTimer = 0;
 const PAGES = ['about', 'collection', 'ai-slop'];
 
 function getPageFromHash() {
@@ -97,6 +99,10 @@ export default function App() {
     transTheme();
     applyTheme(nextTheme);
     setTheme(nextTheme);
+    window.clearTimeout(schemeTimer);
+    schemeTimer = window.setTimeout(() => {
+      document.documentElement.setAttribute('data-scheme', nextTheme);
+    }, SCHEME_DELAY);
   }
 
   return (
