@@ -7,6 +7,14 @@ const flags = {
   en: flagEnglish,
 };
 
+function prefetchPage(page) {
+  if (page === 'collection') {
+    import('./CollectionPage.jsx').catch(() => {});
+  } else if (page === 'ai-slop') {
+    import('./AiSlopPage.jsx').catch(() => {});
+  }
+}
+
 export default function Header({ language, theme, content, currentPage, isMenuOpen, onMenuToggle, onLanguageToggle, onThemeToggle }) {
   const tabs = [
     { page: 'about', href: '#about', label: content.navigation },
@@ -36,7 +44,13 @@ export default function Header({ language, theme, content, currentPage, isMenuOp
             <ul className="navbar-nav ml-auto flex-nowrap">
               {tabs.map(({ page, href, label }) => (
                 <li key={page} className={`nav-item ${currentPage === page ? 'active' : ''}`}>
-                  <a className="nav-link" href={href} onClick={() => onMenuToggle(false)}>
+                  <a
+                    className="nav-link"
+                    href={href}
+                    onClick={() => onMenuToggle(false)}
+                    onMouseEnter={() => prefetchPage(page)}
+                    onFocus={() => prefetchPage(page)}
+                  >
                     {label}
                     {currentPage === page && <span className="sr-only"> (current)</span>}
                   </a>
