@@ -39,6 +39,7 @@ function setupCollectionInteractions(root) {
   };
 
   const onToggleClick = () => {
+    if (!navToggle) return;
     const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!isOpen));
     nav?.classList.toggle('is-open', !isOpen);
@@ -753,17 +754,6 @@ export default memo(function CollectionPage() {
               "Contact"
             )
           ),
-          h("div", { "className": "language-switch", "aria-label": "Language options" },
-            h("a", { "href": "#", "aria-current": "true" },
-              "EN"
-            ),
-            h("span", null,
-              "/"
-            ),
-            h("a", { "href": "#" },
-              "\u65e5\u672c\u8a9e"
-            )
-          )
         )
   );
 });

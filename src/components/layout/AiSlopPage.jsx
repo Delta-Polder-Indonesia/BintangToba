@@ -343,13 +343,6 @@ export default memo(function AiSlopPage({ language = 'en' }) {
                             )
                           )
                         )
-                      ),
-                      h("li", {},
-                        h("a", { "href": "#run-it" },
-                          h("span", {},
-                            "Run it yourself"
-                          )
-                        )
                       )
                     )
                   )
@@ -386,7 +379,7 @@ export default memo(function AiSlopPage({ language = 'en' }) {
                         h("span", { "className": "ks-thumb", "aria-hidden": "true", "style": cssStyle("width: 69.77px; transform: translateX(3px);") })
                       )
                     ),
-                    h("div", { "className": "visual-mode-preview" },
+                    h("div", { "className": "visual-mode-preview max-w-2xl mx-auto" },
                       h("div", { "className": "visual-mode-preview-header" },
                         h("span", { "className": "visual-mode-preview-dot red" }),
                         h("span", { "className": "visual-mode-preview-dot yellow" }),
@@ -396,19 +389,19 @@ export default memo(function AiSlopPage({ language = 'en' }) {
                         )
                       ),
                       h("div", { "id": "slop-example-2022", "className": "visual-mode-frame slop-era-frame ai-slop-era-panel", "data-era": "2022" },
-                        h("img", { "src": "ai-slop/antipattern_images/purple_gradients.png", "alt": "2022-era AI slop example", "loading": "lazy" }),
+                        h("img", { "src": "ai-slop/antipattern_images/purple_gradients.png", "alt": "2022-era AI slop example", "loading": "lazy", "width": "540", "height": "540" }),
                         h("p", null,
                           "Purple gradients, glass panels, neon glow"
                         )
                       ),
                       h("div", { "id": "slop-example-2025", "className": "visual-mode-frame slop-era-frame ai-slop-era-panel", "data-era": "2025", "style": cssStyle("display:none") },
-                        h("img", { "src": "ai-slop/antipattern_images/layout_templates.png", "alt": "2025-era AI slop example", "loading": "lazy" }),
+                        h("img", { "src": "ai-slop/antipattern_images/layout_templates.png", "alt": "2025-era AI slop example", "loading": "lazy", "width": "540", "height": "540" }),
                         h("p", null,
                           "Beige backgrounds, editorial labels, decorative motion"
                         )
                       ),
                       h("div", { "id": "slop-example-2026", "className": "visual-mode-frame slop-era-frame ai-slop-era-panel", "data-era": "2026", "style": cssStyle("display:none") },
-                        h("img", { "src": "ai-slop/antipattern_images/thick_border_cards.png", "alt": "2026-era AI slop example", "loading": "lazy" }),
+                        h("img", { "src": "ai-slop/antipattern_images/thick_border_cards.png", "alt": "2026-era AI slop example", "loading": "lazy", "width": "540", "height": "540" }),
                         h("p", null,
                           "GPT-style neobrutalism: bold borders, hard shadows, sticker badges"
                         )
@@ -3030,92 +3023,6 @@ export default memo(function AiSlopPage({ language = 'en' }) {
                               )
                             )
                           )
-                        )
-                      )
-                    )
-                  ),
-                  h("section", { "className": "slop-section visual-mode-methods", "id": "run-it", "aria-label": "Ways to check your design" },
-                    h("h2", { "className": "slop-section-heading" },
-                      "Run it yourself"
-                    ),
-                    h("div", { "className": "visual-mode-methods-grid" },
-                      h("article", { "className": "visual-mode-method" },
-                        h("h3", { "className": "visual-mode-method-name" },
-                          "Check from the terminal"
-                        ),
-                        h("p", { "className": "visual-mode-method-desc" },
-                          "Scan source files or a running page. Use the results locally or in CI, without starting an AI conversation."
-                        ),
-                        h("div", { "className": "site-code-block code-block-wrap is-command docs-command-block", "data-code-variant": "standard", "data-command-syntax": "fixed" },
-                          h("div", { "className": "site-code-header" },
-                            h("button", { "className": "site-code-copy", "type": "button", "aria-label": "Copy command" },
-                              h("svg", { "className": "site-code-copy-icon", "width": "14", "height": "14", "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "1.6", "aria-hidden": "true" },
-                                h("rect", { "x": "9", "y": "9", "width": "13", "height": "13", "rx": "2" }),
-                                h("path", { "d": "M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" })
-                              ),
-                              h("svg", { "className": "site-code-check-icon", "width": "16", "height": "16", "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "strokeWidth": "2.1", "strokeLinecap": "round", "strokeLinejoin": "round", "aria-hidden": "true" },
-                                h("path", { "d": "M20 6 9 17l-5-5" })
-                              ),
-                              h("span", { "className": "site-code-copy-label", "aria-hidden": "true" },
-                                "Copy"
-                              )
-                            )
-                          ),
-                          h("span", { "className": "site-code-prompt", "aria-hidden": "true" },
-                            "$"
-                          ),
-                          h("pre", { "className": "visual-mode-method-code site-code-content", "data-site-code-ready": "true", "tabIndex": "0" },
-                            h("code", {},
-                              "npx design-checker detect src/\nnpx design-checker detect http://localhost:3000"
-                            )
-                          )
-                        ),
-                        h("span", { "className": "site-code-status", "role": "status", "aria-live": "polite" }),
-                        h("p", { "className": "visual-mode-method-desc" },
-                          h("a", { "href": "#catalog" },
-                            "Read the detector guide"
-                          ),
-                          "."
-                        )
-                      ),
-                      h("article", { "className": "visual-mode-method" },
-                        h("h3", { "className": "visual-mode-method-name" },
-                          "Ask for a design review"
-                        ),
-                        h("p", { "className": "visual-mode-method-desc" },
-                          "Use ",
-                          h("a", { "href": "#catalog" },
-                            "critique"
-                          ),
-                          " to understand what is holding the design back and what to improve first. It combines design judgment with automated checks and shows findings on the page when your agent\u2019s browser tools support the overlay."
-                        ),
-                        h("p", { "className": "visual-mode-method-desc" },
-                          h("a", { "href": "#run-it" },
-                            "Follow the critique walkthrough"
-                          ),
-                          "."
-                        )
-                      ),
-                      h("article", { "className": "visual-mode-method" },
-                        h("h3", { "className": "visual-mode-method-name" },
-                          "Inspect a page in Chrome"
-                        ),
-                        h("p", { "className": "visual-mode-method-desc" },
-                          "Open your design-checker extension and choose ",
-                          h("strong", {},
-                            "Scan page"
-                          ),
-                          ". Use ",
-                          h("strong", {},
-                            "Show overlays"
-                          ),
-                          " to see where the findings appear on the page."
-                        ),
-                        h("p", { "className": "visual-mode-method-desc" },
-                          h("a", { "href": "#run-it", "target": "_blank", "rel": "noopener" },
-                            "Review the detector workflow"
-                          ),
-                          "."
                         )
                       )
                     )

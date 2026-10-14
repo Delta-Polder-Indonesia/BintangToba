@@ -47,6 +47,15 @@ function getInitialTheme() {
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
+function PageLoader() {
+  return (
+    <div className="page-loader" role="status" aria-live="polite">
+      <span className="page-loader-spinner" aria-hidden="true" />
+      <span>Loading…</span>
+    </div>
+  );
+}
+
 export default function App() {
   const [language, setLanguage] = useState(getInitialLanguage);
   const [theme, setTheme] = useState(getInitialTheme);
@@ -78,6 +87,21 @@ export default function App() {
       document.body.classList.remove('page-embed');
     };
   }, [currentPage]);
+
+  useEffect(() => {
+    const prefetchPages = () => {
+      import('./components/layout/CollectionPage.jsx').catch(() => {});
+      import('./components/layout/AiSlopPage.jsx').catch(() => {});
+    };
+
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(prefetchPages, { timeout: 2500 });
+      return () => window.cancelIdleCallback?.(id);
+    }
+
+    const timer = window.setTimeout(prefetchPages, 1500);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     applyTheme(theme);
@@ -139,7 +163,8 @@ export default function App() {
         </main>
       )}
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageLoader />}>
+
         {currentPage === 'collection' && (
           <main className="collection-page-shell" id="collection">
             <CollectionPage />
