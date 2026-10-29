@@ -88,20 +88,6 @@ export default function App() {
     };
   }, [currentPage]);
 
-  useEffect(() => {
-    const prefetchPages = () => {
-      import('./components/layout/CollectionPage.jsx').catch(() => {});
-      import('./components/layout/AiSlopPage.jsx').catch(() => {});
-    };
-
-    if (typeof window.requestIdleCallback === 'function') {
-      const id = window.requestIdleCallback(prefetchPages, { timeout: 2500 });
-      return () => window.cancelIdleCallback?.(id);
-    }
-
-    const timer = window.setTimeout(prefetchPages, 1500);
-    return () => window.clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     applyTheme(theme);
