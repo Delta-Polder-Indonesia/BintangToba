@@ -7,13 +7,6 @@ const flags = {
   en: flagEnglish,
 };
 
-function prefetchPage(page) {
-  if (page === 'collection') {
-    import('./CollectionPage.jsx').catch(() => {});
-  } else if (page === 'ai-slop') {
-    import('./AiSlopPage.jsx').catch(() => {});
-  }
-}
 
 export default function Header({ language, theme, content, currentPage, isMenuOpen, onMenuToggle, onLanguageToggle, onThemeToggle }) {
   const tabs = [
@@ -48,8 +41,6 @@ export default function Header({ language, theme, content, currentPage, isMenuOp
                     className="nav-link"
                     href={href}
                     onClick={() => onMenuToggle(false)}
-                    onMouseEnter={() => prefetchPage(page)}
-                    onFocus={() => prefetchPage(page)}
                   >
                     {label}
                     {currentPage === page && <span className="sr-only"> (current)</span>}
