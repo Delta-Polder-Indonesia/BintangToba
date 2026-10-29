@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Alumni+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap");
+
 html.transition:has(.ai-slop-native-page),
 html.transition:has(.ai-slop-native-page) *,
 html.transition:has(.ai-slop-native-page)::before,
